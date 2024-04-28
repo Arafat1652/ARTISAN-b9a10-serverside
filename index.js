@@ -33,6 +33,7 @@ async function run() {
 
 
     const craftCollection = client.db("art&craftDB").collection('crafts')
+    const subcategoryCollection = client.db("art&craftDB").collection('subcategory')
 
     app.get('/crafts', async(req, res) => {
       const cursor = craftCollection.find();
@@ -99,6 +100,12 @@ async function run() {
         const result = await craftCollection.deleteOne(query);
         res.send(result)
     })
+
+    app.get('/subcategory', async(req, res) => {
+      const cursor = subcategoryCollection.find();
+      const result = await cursor.toArray();
+      res.send(result)
+  })
 
 
     // Send a ping to confirm a successful connection
