@@ -101,10 +101,18 @@ async function run() {
         res.send(result)
     })
 
+    // for subcategory
+
     app.get('/subcategory', async(req, res) => {
       const cursor = subcategoryCollection.find();
       const result = await cursor.toArray();
       res.send(result)
+  })
+
+  app.get("/cardItem/:subcategoryName", async (req, res) => {
+    console.log(req.params.subcategoryName);
+    const result = await craftCollection.find({ subcategoryName: req.params.subcategoryName }).toArray();
+    res.send(result)
   })
 
 
