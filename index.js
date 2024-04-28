@@ -35,6 +35,8 @@ async function run() {
     const craftCollection = client.db("art&craftDB").collection('crafts')
     const subcategoryCollection = client.db("art&craftDB").collection('subcategory')
 
+    //this is for arts and crafts
+
     app.get('/crafts', async(req, res) => {
       const cursor = craftCollection.find();
       const result = await cursor.toArray();
@@ -101,7 +103,7 @@ async function run() {
         res.send(result)
     })
 
-    // for subcategory
+    //this is for subcategoryName
 
     app.get('/subcategory', async(req, res) => {
       const cursor = subcategoryCollection.find();
