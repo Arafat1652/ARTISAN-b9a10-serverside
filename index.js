@@ -103,7 +103,7 @@ async function run() {
         res.send(result)
     })
 
-    //this is for subcategoryName
+    //this is for subcategory Name
 
     app.get('/subcategory', async(req, res) => {
       const cursor = subcategoryCollection.find();
